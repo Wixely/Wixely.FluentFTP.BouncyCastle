@@ -1,0 +1,58 @@
+name: Build and Publish
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore
+        run: dotnet restore Wixely.FluentFTP.BouncyCastle.sln
+
+      - name: Build
+        run: dotnet build Wixely.FluentFTP.BouncyCastle.sln -c Release --no-restore
+
+      - name: Run specifications
+        run: dotnet run --project tests/Wixely.FluentFTP.BouncyCastle.Specs -c Release --no-build
+
+      - name: Resolve package version
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: powershell
+        run: |
+          $version = $env:GITHUB_REF_NAME.Substring(1)
+          Add-Content -LiteralPath $env:GITHUB_ENV -Value "PACKAGE_VERSION=$version"
+
+      - name: Pack tagged release
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: >-
+          dotnet pack src/Wixely.FluentFTP.BouncyCastle
+          -c Release
+          --no-build
+          -p:PackageVersion=${{ env.PACKAGE_VERSION }}
+          -o artifacts/packages
+
+      - name: Publish tagged package
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: >-
+          dotnet nuget push artifacts/packages/*.nupkg
+          --source https://nuget.pkg.github.com/Wixely/index.json
+          --api-key ${{ secrets.GITHUB_TOKEN }}
+          --skip-duplicate

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Bouncy Castle TLS stream adapter for FluentFTP with explicit FTPS session reuse.</Description>
+    <PackageId>Wixely.FluentFTP.BouncyCastle</PackageId>
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <VersionSuffix>alpha.1</VersionSuffix>
+    <Title>Wixely FluentFTP Bouncy Castle adapter</Title>
+    <PackageTags>ftp;ftps;fluentftp;bouncycastle;tls;session-resumption</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BouncyCastle.Cryptography" />
+    <PackageReference Include="FluentFTP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>

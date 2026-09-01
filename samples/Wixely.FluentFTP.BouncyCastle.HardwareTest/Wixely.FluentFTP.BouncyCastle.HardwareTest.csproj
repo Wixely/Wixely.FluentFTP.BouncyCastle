@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Wixely.FluentFTP.BouncyCastle\Wixely.FluentFTP.BouncyCastle.csproj" />
+  </ItemGroup>
+</Project>

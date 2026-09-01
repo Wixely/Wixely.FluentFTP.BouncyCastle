@@ -1,0 +1,33 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wixely.FluentFTP.BouncyCastle", "src\Wixely.FluentFTP.BouncyCastle\Wixely.FluentFTP.BouncyCastle.csproj", "{2CB47C82-B777-42A7-858A-2DD46073126F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wixely.FluentFTP.BouncyCastle.Specs", "tests\Wixely.FluentFTP.BouncyCastle.Specs\Wixely.FluentFTP.BouncyCastle.Specs.csproj", "{51B705EC-420E-4365-8BF3-441B36CD9C8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wixely.FluentFTP.BouncyCastle.HardwareTest", "samples\Wixely.FluentFTP.BouncyCastle.HardwareTest\Wixely.FluentFTP.BouncyCastle.HardwareTest.csproj", "{248B022D-F016-4655-801C-44D16C4453B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CB47C82-B777-42A7-858A-2DD46073126F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CB47C82-B777-42A7-858A-2DD46073126F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CB47C82-B777-42A7-858A-2DD46073126F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CB47C82-B777-42A7-858A-2DD46073126F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51B705EC-420E-4365-8BF3-441B36CD9C8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51B705EC-420E-4365-8BF3-441B36CD9C8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51B705EC-420E-4365-8BF3-441B36CD9C8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51B705EC-420E-4365-8BF3-441B36CD9C8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{248B022D-F016-4655-801C-44D16C4453B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{248B022D-F016-4655-801C-44D16C4453B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{248B022D-F016-4655-801C-44D16C4453B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{248B022D-F016-4655-801C-44D16C4453B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
