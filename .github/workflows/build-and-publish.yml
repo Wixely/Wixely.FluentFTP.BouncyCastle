@@ -51,8 +51,17 @@ jobs:
 
       - name: Publish tagged package
         if: startsWith(github.ref, 'refs/tags/v')
-        run: >-
-          dotnet nuget push artifacts/packages/*.nupkg
-          --source https://nuget.pkg.github.com/Wixely/index.json
-          --api-key ${{ secrets.GITHUB_TOKEN }}
-          --skip-duplicate
+        shell: powershell
+        run: |
+          $package = Get-ChildItem -LiteralPath artifacts\packages -Filter *.nupkg | Select-Object -First 1
+          if ($null -eq $package) {
+            throw "No NuGet package was produced."
+          }
+
+          dotnet nuget push $package.FullName `
+            --source https://nuget.pkg.github.com/Wixely/index.json `
+            --api-key ${{ secrets.GITHUB_TOKEN }} `
+            --skip-duplicate
+          if ($LASTEXITCODE -ne 0) {
+            exit $LASTEXITCODE
+          }
